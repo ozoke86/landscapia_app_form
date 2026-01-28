@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- LINKS -->
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <title>Application</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="logo_combiner">
+          <img class="logo" src="../images/landscapia-header-logo-dark.png" alt="Landscapia Logo" />
+          <p>-</p>
+          <img class="logo" src="../images/WLDLOGO.webp" alt="Landscapia Logo" />
+        </div>
+        <nav>
+          <ul class="header_nav">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Info</a></li>
+            <li><a href="#">Apply</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="blurb">
+      <div class="container">
+        <h2>Subcontractor Application</h2>
+        <p>
+          The application process is simple. Complete each step below and provide the required information so we can review your suitability for
+          upcoming projects.
+        </p>
+      </div>
+    </section>
+    <section class="steps_section">
+      <div class="container">
+        <h2 class="steps_header">Application Progress</h2>
+        <div class="steps_display">
+          <div class="step_item">
+            <span class="step_number active">1</span>
+            <p class="step_label">General information</p>
+          </div>
+          <div class="arrow_wrap">
+            <img src="../images/graphite arrow.png" alt="right pointing arrow" />
+          </div>
+
+          <div class="step_item">
+            <span class="step_number">2</span>
+            <p class="step_label">Trade Specific</p>
+          </div>
+          <div class="arrow_wrap">
+            <img src="../images/graphite arrow.png" alt="right pointing arrow" />
+          </div>
+
+          <div class="step_item">
+            <span class="step_number">3</span>
+            <p class="step_label">Submitted</p>
+          </div>
+        </div>
+        <p>Questions marked with a <span style="color: red">&#42;</span> are required questions.</p>
+        <p>Please ensure you have read and understand the terms and requirements before applying.</p>
+        <p>All information is handled in accordance to our <a href="#">privacy policy</a>.</p>
+      </div>
+    </section>
+    <section class="form_section">
+  <div class="container">
+    <form id="contractorForm">
+
+      <!-- STEP 1: GENERAL INFORMATION -->
+      <div class="step_1" id="step-1">
+        <h2>General information</h2>
+
+        <div class="form_group">
+          <label for="name">Name<span class="required">*</span></label>
+          <input type="text" id="name" name="name" required />
+        </div>
+
+        <div class="form_group">
+          <label for="business">Business name</label>
+          <input type="text" id="business" name="business" />
+        </div>
+
+        
+
+        <div class="form_group">
+            <h3>Address</h3>
+          <label for="address_line1">Address line 1<span class="required">*</span></label>
+          <input type="text" id="address_line1" name="address_line1" required />
+        </div>
+
+        <div class="form_group">
+          <label for="address_line2">Address line 2</label>
+          <input type="text" id="address_line2" name="address_line2" />
+        </div>
+
+        <div class="form_group">
+          <label for="town_city">Town / City<span class="required">*</span></label>
+          <input type="text" id="town_city" name="town_city" required />
+        </div>
+
+        <div class="form_group">
+          <label for="postcode">Postcode<span class="required">*</span></label>
+          <input type="text" id="postcode" name="postcode" required />
+        </div>
+
+        <div class="form_group">
+          <label for="phone_number">Phone number<span class="required">*</span></label>
+          <input type="text" id="phone_number" name="phone_number" required />
+        </div>
+
+        <div class="form_group">
+          <label for="email_add">Email address<span class="required">*</span></label>
+          <input type="email" id="email_add" name="email_add" required />
+        </div>
+
+        <div class="form_group">
+          <label for="trade">Primary trade<span class="required">*</span></label>
+          <select id="trade" name="trade" required>
+            <option value="">Select trade</option>
+            <option value="landscaper">Landscaper</option>
+            <option value="bricklayer">Bricklayer</option>
+            <option value="groundworker">Groundworker</option>
+            <option value="joiner">Joiner</option>
+            <option value="electrician">Electrician</option>
+            <option value="plumber">Plumber</option>
+          </select>
+        </div>
+
+        <div class="form_group">
+          <label for="exp_years">Years experience</label>
+          <input type="number" id="exp_years" name="exp_years" min="0" />
+        </div>
+
+        <div class="form_group">
+          <label for="coverage">Coverage radius (miles)<span class="required">*</span></label>
+          <input type="number" id="coverage" name="coverage" min="0" required />
+        </div>
+
+        <div class="form_group">
+          <label for="web_socials">Website</label>
+          <input type="text" id="web_socials" name="web_socials" />
+        </div>
+
+        <button type="button" id="next-1" class="next_button">Next</button>
+      </div>
+
+      <!-- STEP 2: TRADE SPECIFIC -->
+      <div class="step_2" id="step-2" style="display:none;">
+        <h2>Trade Specific</h2>
+
+        <!-- Landscaper -->
+        <div class="trade-block" id="trade-landscaper" style="display:none;">
+          <h3>Landscaper Details</h3>
+
+          <div class="form_group">
+            <label>Question 1</label>
+            <input type="text" name="ls_question1" />
+          </div>
+
+          <div class="form_group">
+            <label>Question 2</label>
+            <input type="text" name="ls_question2" />
+          </div>
+
+          <div class="form_group">
+            <label>Question 3</label>
+            <input type="text" name="ls_question3" />
+          </div>
+
+          <div class="form_group">
+            <label>Question 4</label>
+            <input type="text" name="ls_question4" />
+          </div>
+        </div>
+
+        <!-- Bricklayer -->
+        <div class="trade-block" id="trade-bricklayer" style="display:none;">
+          <h3>Bricklayer Details</h3>
+
+          <div class="form_group">
+            <label>Question 1</label>
+            <input type="text" name="bl_question1" />
+          </div>
+
+          <div class="form_group">
+            <label>Question 2</label>
+            <input type="text" name="bl_question2" />
+          </div>
+
+          <div class="form_group">
+            <label>Question 3</label>
+            <input type="text" name="bl_question3" />
+          </div>
+
+          <div class="form_group">
+            <label>Question 4</label>
+            <input type="text" name="bl_question4" />
+          </div>
+        </div>
+
+        <!-- Groundworker -->
+        <div class="trade-block" id="trade-groundworker" style="display:none;">
+          <h3>Groundworker Details</h3>
+
+          <div class="form_group">
+            <label>Question 1</label>
+            <input type="text" name="gw_question1" />
+          </div>
+
+          <div class="form_group">
+            <label>Question 2</label>
+            <input type="text" name="gw_question2" />
+          </div>
+
+          <div class="form_group">
+            <label>Question 3</label>
+            <input type="text" name="gw_question3" />
+          </div>
+
+          <div class="form_group">
+            <label>Question 4</label>
+            <input type="text" name="gw_question4" />
+          </div>
+        </div>
+
+        <!-- Joiner -->
+        <div class="trade-block" id="trade-joiner" style="display:none;">
+          <h3>Joiner Details</h3>
+
+          <div class="form_group">
+            <label>Question 1</label>
+            <input type="text" name="j_question1" />
+          </div>
+
+          <div class="form_group">
+            <label>Question 2</label>
+            <input type="text" name="j_question2" />
+          </div>
+
+          <div class="form_group">
+            <label>Question 3</label>
+            <input type="text" name="j_question3" />
+          </div>
+
+          <div class="form_group">
+            <label>Question 4</label>
+            <input type="text" name="j_question4" />
+          </div>
+        </div>
+
+        <!-- Electrician -->
+        <div class="trade-block" id="trade-electrician" style="display:none;">
+          <h3>Electrician Details</h3>
+
+          <div class="form_group">
+            <label>Question 1</label>
+            <input type="text" name="el_question1" />
+          </div>
+
+          <div class="form_group">
+            <label>Question 2</label>
+            <input type="text" name="el_question2" />
+          </div>
+
+          <div class="form_group">
+            <label>Question 3</label>
+            <input type="text" name="el_question3" />
+          </div>
+
+          <div class="form_group">
+            <label>Question 4</label>
+            <input type="text" name="el_question4" />
+          </div>
+        </div>
+
+        <!-- Plumber -->
+        <div class="trade-block" id="trade-plumber" style="display:none;">
+          <h3>Plumber Details</h3>
+
+          <div class="form_group">
+            <label>Question 1</label>
+            <input type="text" name="pl_question1" />
+          </div>
+
+          <div class="form_group">
+            <label>Question 2</label>
+            <input type="text" name="pl_question2" />
+          </div>
+
+          <div class="form_group">
+            <label>Question 3</label>
+            <input type="text" name="pl_question3" />
+          </div>
+
+          <div class="form_group">
+            <label>Question 4</label>
+            <input type="text" name="pl_question4" />
+          </div>
+        </div>
+
+        <div class="step_2_buttons">
+  <button type="button" id="back-2">Back</button>
+  <button type="submit">Submit</button>
+</div>
+
+      </div>
+
+    </form>
+    <!-- STEP 3: CONFIRMATION -->
+<div class="step_3" id="step-3" style="display:none;">
+  <h2>Application Submitted</h2>
+
+  <div class="confirmation_box">
+    <p>Thank you for submitting your application.</p>
+    <p>Our team will review your details and contact you if we require any further information.</p>
+  </div>
+
+  <button type="button" id="back-home" class="home_button">Return to Home</button>
+</div>
+  </div>
+</section>
+  </body>
+  <script src="../scripts/application.js"></script>
+</html>
