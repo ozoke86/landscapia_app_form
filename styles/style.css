@@ -276,7 +276,7 @@ a {
   background-color: var(--white);
   padding: 24px;
   border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -349,7 +349,7 @@ a {
 /* BLURB SECTION */
 .blurb {
   background-color: var(--w_Smoke);
-  margin-top: 48px;
+  margin-top: 10px;
 }
 
 .blurb .container {
@@ -375,7 +375,6 @@ a {
 .steps_section {
   margin-top: 48px;
   color: var(--grahite);
-  
 }
 
 .steps_section .container {
@@ -406,7 +405,7 @@ a {
 .steps_display img {
   width: 100%;
   max-width: 100px;
-} 
+}
 
 .arrow_wrap {
   display: flex;
@@ -415,7 +414,6 @@ a {
   max-width: 100px;
 }
 
-
 .step_item {
   display: flex;
   flex-direction: column;
@@ -423,7 +421,6 @@ a {
   gap: 16px;
   max-width: 100px;
 }
-
 
 .step_number {
   display: inline-flex;
@@ -444,11 +441,9 @@ a {
   margin: 0;
 }
 
-
 .step_number.active {
   background-color: var(--f_Green);
   border-color: var(--f_Green);
-  
 }
 
 /* FORM SECTION */
@@ -730,3 +725,139 @@ select:focus {
   }
 }
 
+/* Step Indicator */
+.steps_display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.step_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.step_number {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--white);
+  background-color: var(--grahite);
+  border: 6px solid var(--grahite);
+  border-radius: 50%;
+  transition: 0.25s ease;
+}
+
+.step_number.active {
+  background-color: var(--f_Green);
+  border-color: var(--f_Green);
+  transform: scale(1.1);
+}
+
+.step_label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--grahite);
+}
+
+.step_arrow {
+  width: 80px;
+  opacity: 0.7;
+}
+
+.error_message {
+  color: #d9534f; /* soft red */
+  font-size: 14px;
+  margin-top: 4px;
+  display: none;
+}
+
+input.error,
+select.error {
+  border-color: #d9534f !important;
+}
+
+input.valid,
+select.valid {
+  border-color: var(--f_Green) !important;
+}
+
+.intro_header {
+  position: relative;
+  padding: 40px 30px;
+  overflow: hidden;
+  margin-bottom: 40px;
+
+  /* Background image */
+  background-image: url("../images/firm-handshake.jpg"); /* update path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Subtle dark overlay for readability */
+.intro_header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.452); /* adjust strength */
+  z-index: 0;
+}
+
+/* Ensure text sits above the overlay */
+.intro_header h2,
+.intro_header p {
+  position: relative;
+  z-index: 1;
+  color: var(--white);
+}
+
+.intro_header h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.intro_header p {
+  font-size: 18px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.section_header {
+  position: relative;
+  padding: 40px 20px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  background-color: var(--grahite);
+}
+
+.section_header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url(../images/maranda-vandergriff-7aakZdIl4vg-unsplash.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.section_header {
+  position: relative;
+  z-index: 1;
+  color: var(--w_Smoke);
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
