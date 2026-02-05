@@ -1,59 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* -----------------------------------
-     ELEMENT REFERENCES
-  ----------------------------------- */
+  // STEP ELEMENTS
+  const step1 = document.getElementById("step-1");
+  const step2 = document.getElementById("step-2");
+  const step3 = document.getElementById("step-3");
 
-  const form = document.querySelector("[data-form='subcontractor-application']");
-  const steps = document.querySelectorAll(".form-step");
-  const stepIndicatorNumbers = document.querySelectorAll(".step-indicator__number");
+  // BUTTONS
+  const next1 = document.getElementById("next-1");
+  const back2 = document.getElementById("back-2");
+  const homeBtn = document.getElementById("back-home");
 
-  const nextBtn = document.querySelector(".form-step__next");
-  const backBtn = document.querySelector(".form-step__back");
-  const homeBtn = document.querySelector(".home-button");
+  // FORM
+  const form = document.getElementById("contractorForm");
 
-  const tradeSelect = document.getElementById("trade");
-
+  // CONDITIONAL FIELDS
   const regNumberGroup = document.getElementById("reg_number_group");
-  const regNumberField = document.getElementById("company_reg_number");
-
   const liabilityExpiryGroup = document.getElementById("liability_expiry_group");
+
+  const regNumberField = document.getElementById("company_reg_number");
   const liabilityExpiryField = document.getElementById("liability_expiry");
 
+  // TRADE SELECT
+  const tradeSelect = document.getElementById("trade");
 
-  /* -----------------------------------
-     STEP MANAGER
-  ----------------------------------- */
+  // PREVENT ENTER KEY FROM SUBMITTING EARLY
+  form.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+    }
+  });
 
-  let currentStep = 1;
-
-  function showStep(step) {
-    steps.forEach(s => s.classList.remove("form-step--active"));
-    document.querySelector(`.form-step[data-step="${step}"]`).classList.add("form-step--active");
-
-    updateStepIndicator(step);
-    currentStep = step;
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
-  function updateStepIndicator(step) {
-    stepIndicatorNumbers.forEach(num => {
-      const isActive = parseInt(num.dataset.step) === step;
-      num.classList.toggle("step-indicator__number--active", isActive);
-    });
-  }
-
-  showStep(1);
-
-
-  /* -----------------------------------
-     VALIDATION HELPERS
-  ----------------------------------- */
-
+  // -----------------------------
+  // INLINE VALIDATION HELPERS
+  // -----------------------------
   function showError(field, message) {
-    const group = field.closest(".form-group");
-    const error = group.querySelector(".form-group__error");
+    const group = field.closest(".form_group");
+    const error = group.querySelector(".error_message");
 
     field.classList.add("error");
     field.classList.remove("valid");
@@ -63,8 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function clearError(field) {
-    const group = field.closest(".form-group");
-    const error = group.querySelector(".form-group__error");
+    const group = field.closest(".form_group");
+    const error = group.querySelector(".error_message");
 
     field.classList.remove("error");
     field.classList.add("valid");
@@ -73,148 +55,194 @@ document.addEventListener("DOMContentLoaded", () => {
     error.style.display = "none";
   }
 
-  function validateField(field) {
-    if (field.hasAttribute("required") && !field.value.trim()) {
-      showError(field, "This field is required");
-      return false;
-    }
-    clearError(field);
-    return true;
-  }
-
+  // -----------------------------
+  // RADIO GROUP VALIDATION
+  // -----------------------------
   function validateRadioGroup(name, message) {
+    const group = document.querySelector(`input[name="${name}"]`)?.closest(".form_group");
+    const error = group.querySelector(".error_message");
     const options = document.querySelectorAll(`input[name="${name}"]`);
-    const group = options[0].closest(".form-group");
-    const error = group.querySelector(".form-group__error");
 
-    const selected = Array.from(options).some(o => o.checked);
+    const selected = Array.from(options).some(option => option.checked);
 
     if (!selected) {
       error.textContent = message;
       error.style.display = "block";
       return false;
-    }
-
-    error.textContent = "";
-    error.style.display = "none";
-    return true;
-  }
-
-
-  /* -----------------------------------
-     REAL-TIME VALIDATION
-  ----------------------------------- */
-
-  form.addEventListener("input", (e) => {
-    if (e.target.matches("[required]")) {
-      validateField(e.target);
-    }
-  });
-
-
-  /* -----------------------------------
-     CONDITIONAL LOGIC
-  ----------------------------------- */
-
-  function toggleConditional(group, field, show) {
-    if (show) {
-      group.hidden = false;
-      field.setAttribute("required", "required");
     } else {
-      group.hidden = true;
-      field.removeAttribute("required");
-      field.value = "";
-      clearError(field);
+      error.textContent = "";
+      error.style.display = "none";
+      return true;
     }
   }
 
-  form.addEventListener("change", (e) => {
-    if (e.target.name === "business_registered") {
-      toggleConditional(regNumberGroup, regNumberField, e.target.value === "yes");
-    }
-
-    if (e.target.name === "public_liability") {
-      toggleConditional(liabilityExpiryGroup, liabilityExpiryField, e.target.value === "yes");
-    }
+  // Real-time validation for radio groups
+  document.querySelectorAll("input[name='business_registered']").forEach(radio => {
+    radio.addEventListener("change", () => {
+      validateRadioGroup("business_registered", "Please select an option");
+    });
   });
 
-
-  /* -----------------------------------
-     TRADE BLOCK MANAGER
-  ----------------------------------- */
-
-  function showTradeBlock() {
-    const selected = tradeSelect.value.toLowerCase();
-
-    document.querySelectorAll(".trade-block").forEach(block => {
-      block.hidden = true;
+  document.querySelectorAll("input[name='public_liability']").forEach(radio => {
+    radio.addEventListener("change", () => {
+      validateRadioGroup("public_liability", "Please select an option");
     });
+  });
 
-    const active = document.getElementById(`trade-${selected}`);
-    if (active) active.hidden = false;
-  }
-
-
-  /* -----------------------------------
-     STEP 1 → STEP 2
-  ----------------------------------- */
-
-  nextBtn.addEventListener("click", () => {
-    const requiredFields = steps[0].querySelectorAll("[required]");
-    let valid = true;
+  // -----------------------------
+  // REAL-TIME VALIDATION FOR TEXT/NUMBER/EMAIL FIELDS
+  // -----------------------------
+  function attachRealtimeValidation() {
+    const requiredFields = step1.querySelectorAll("[required]");
 
     requiredFields.forEach(field => {
-      if (!validateField(field)) valid = false;
+      field.addEventListener("input", () => {
+        if (!field.value.trim()) {
+          showError(field, "This field is required");
+        } else {
+          clearError(field);
+        }
+      });
+    });
+  }
+
+  attachRealtimeValidation();
+
+  // -----------------------------
+  // DYNAMIC STEP INDICATOR
+  // -----------------------------
+  function updateStepIndicator(stepNumber) {
+    const steps = document.querySelectorAll(".step_number");
+
+    steps.forEach(step => {
+      if (parseInt(step.dataset.step) === stepNumber) {
+        step.classList.add("active");
+      } else {
+        step.classList.remove("active");
+      }
+    });
+  }
+
+  updateStepIndicator(1);
+
+  // -----------------------------
+  // CONDITIONAL LOGIC — BUSINESS REGISTERED
+  // -----------------------------
+  document.querySelectorAll("input[name='business_registered']").forEach(radio => {
+    radio.addEventListener("change", () => {
+      if (radio.value === "yes") {
+        regNumberGroup.style.display = "flex";
+        regNumberField.setAttribute("required", "required");
+      } else {
+        regNumberGroup.style.display = "none";
+        regNumberField.removeAttribute("required");
+        regNumberField.value = "";
+        clearError(regNumberField);
+      }
+
+      attachRealtimeValidation();
+    });
+  });
+
+  // -----------------------------
+  // CONDITIONAL LOGIC — PUBLIC LIABILITY
+  // -----------------------------
+  document.querySelectorAll("input[name='public_liability']").forEach(radio => {
+    radio.addEventListener("change", () => {
+      if (radio.value === "yes") {
+        liabilityExpiryGroup.style.display = "flex";
+        liabilityExpiryField.setAttribute("required", "required");
+      } else {
+        liabilityExpiryGroup.style.display = "none";
+        liabilityExpiryField.removeAttribute("required");
+        liabilityExpiryField.value = "";
+        clearError(liabilityExpiryField);
+      }
+
+      attachRealtimeValidation();
+    });
+  });
+
+  // -----------------------------
+  // STEP 1 → STEP 2
+  // -----------------------------
+  next1.addEventListener("click", () => {
+
+    const requiredFields = step1.querySelectorAll("[required]");
+    let valid = true;
+
+    // Validate text/number/email fields
+    requiredFields.forEach(field => {
+      if (!field.value.trim()) {
+        showError(field, "This field is required");
+        valid = false;
+      } else {
+        clearError(field);
+      }
     });
 
+    // Validate radio groups
     if (!validateRadioGroup("business_registered", "Please select an option")) valid = false;
     if (!validateRadioGroup("public_liability", "Please select an option")) valid = false;
 
     if (!valid) return;
 
-    showTradeBlock();
-    showStep(2);
+    step1.style.display = "none";
+    step2.style.display = "flex";
+
+    updateStepIndicator(2);
+
+    // Show correct trade block
+    const selectedTrade = tradeSelect.value.toLowerCase();
+    document.querySelectorAll(".trade-block").forEach(block => {
+      block.style.display = "none";
+    });
+
+    const activeBlock = document.getElementById(`trade-${selectedTrade}`);
+    if (activeBlock) activeBlock.style.display = "flex";
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
+  // -----------------------------
+  // STEP 2 → STEP 1 (BACK)
+  // -----------------------------
+  back2.addEventListener("click", () => {
+    step2.style.display = "none";
+    step1.style.display = "flex";
 
-  /* -----------------------------------
-     STEP 2 → STEP 1
-  ----------------------------------- */
+    updateStepIndicator(1);
 
-  backBtn.addEventListener("click", () => {
-    showStep(1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-
-  /* -----------------------------------
-     FORM SUBMISSION → STEP 3
-  ----------------------------------- */
-
+  // -----------------------------
+  // FINAL SUBMIT → STEP 3
+  // -----------------------------
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const fields = form.querySelectorAll("[data-field]");
-    const payload = {};
+    const formData = new FormData(form);
+    const dataObject = {};
 
-    fields.forEach(field => {
-      if (field.type === "radio") {
-        if (field.checked) payload[field.dataset.field] = field.value;
-      } else {
-        payload[field.dataset.field] = field.value;
-      }
+    formData.forEach((value, key) => {
+      dataObject[key] = value;
     });
 
     console.log("APPLICATION SUBMITTED:");
-    console.log(payload);
+    console.log(dataObject);
 
-    showStep(3);
+    step2.style.display = "none";
+    step3.style.display = "flex";
+
+    updateStepIndicator(3);
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-
-  /* -----------------------------------
-     RETURN TO HOME
-  ----------------------------------- */
-
+  // -----------------------------
+  // RETURN TO HOME
+  // -----------------------------
   homeBtn.addEventListener("click", () => {
     window.location.href = "../index.html";
   });

@@ -3,438 +3,384 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="../css/base.css" />
-    <link rel="stylesheet" href="../css/layout.css" />
-    <link rel="stylesheet" href="../css/components.css" />
-    <link rel="stylesheet" href="../css/pages-application.css" />
-
-    <!-- Fonts -->
+    <!-- LINKS -->
+    <link rel="stylesheet" href="../css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <title>Subcontractor Application</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <title>Application</title>
   </head>
-
   <body>
-    <!-- HEADER -->
-    <header class="site-header">
-      <div class="container site-header__inner">
-        <div class="brand-combo">
-          <img class="brand-combo__logo" src="../images/landscapia-header-logo-dark.png" alt="Landscapia logo" />
-          <span class="brand-combo__divider">-</span>
-          <img class="brand-combo__logo" src="../images/WLDLOGO.webp" alt="Walker Landscape & Design logo" />
+    <header class="header">
+      <div class="container">
+        <div class="logo_combiner">
+          <img class="logo" src="../images/landscapia-header-logo-dark.png" alt="Landscapia Logo" />
+          <p>-</p>
+          <img class="logo" src="../images/WLDLOGO.webp" alt="Landscapia Logo" />
         </div>
-
-        <nav class="site-nav" aria-label="Primary navigation">
-          <ul class="site-nav__list">
-            <li><a class="site-nav__link" href="../index.html">Home</a></li>
-            <li><a class="site-nav__link" href="#">About</a></li>
-            <li><a class="site-nav__link" href="#">Info</a></li>
-            <li><a class="site-nav__link site-nav__link--active" href="#">Apply</a></li>
-            <li><a class="site-nav__link" href="#">Contact</a></li>
+        <nav>
+          <ul class="header_nav">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Info</a></li>
+            <li><a href="#">Apply</a></li>
+            <li><a href="#">Contact</a></li>
           </ul>
         </nav>
       </div>
     </header>
-
-    <!-- INTRO -->
-    <section class="intro-header">
-      <div class="container intro-header__inner">
-        <h1 class="intro-header__title">Subcontractor Application</h1>
-        <p class="intro-header__text">
-          Complete each step below and provide the required information so we can review your suitability for upcoming projects.
+    <section class="blurb intro_header">
+      <div class="container">
+        <h2>Subcontractor Application</h2>
+        <p>
+          The application process is simple. Complete each step below and provide the required information so we can review your suitability for
+          upcoming projects.
         </p>
       </div>
     </section>
-
-    <!-- STEP INDICATOR -->
-    <section class="steps">
-      <div class="container steps__inner">
-        <h2 class="steps__title">Application Progress</h2>
-
-        <div class="step-indicator" id="step-indicator">
-          <div class="step-indicator__item">
-            <span class="step-indicator__number step-indicator__number--active" data-step="1">1</span>
-            <p class="step-indicator__label">Details</p>
+    <section class="steps_section">
+      <div class="container">
+        <h2 class="steps_header">Application Progress</h2>
+        <div class="steps_display" id="step-indicator">
+          <div class="step_item">
+            <span class="step_number" data-step="1">1</span>
+            <p class="step_label">Details</p>
           </div>
 
-          <img src="../images/graphite arrow.png" alt="" class="step-indicator__arrow" />
+          <img src="../images/graphite arrow.png" alt="arrow" class="step_arrow" />
 
-          <div class="step-indicator__item">
-            <span class="step-indicator__number" data-step="2">2</span>
-            <p class="step-indicator__label">Trade</p>
+          <div class="step_item">
+            <span class="step_number" data-step="2">2</span>
+            <p class="step_label">Trade</p>
           </div>
 
-          <img src="../images/graphite arrow.png" alt="" class="step-indicator__arrow" />
+          <img src="../images/graphite arrow.png" alt="arrow" class="step_arrow" />
 
-          <div class="step-indicator__item">
-            <span class="step-indicator__number" data-step="3">3</span>
-            <p class="step-indicator__label">Confirm</p>
+          <div class="step_item">
+            <span class="step_number" data-step="3">3</span>
+            <p class="step_label">Confirm</p>
           </div>
         </div>
-
-        <p class="steps__note">Questions marked with <span class="required">*</span> are required.</p>
+        <p>Questions marked with <span style="color: red">&#42;</span> are required questions.</p>
+        <p>Please ensure you have read and understand the terms and requirements before applying.</p>
+        <p>All information is handled in accordance to our <a href="#">privacy policy</a>.</p>
       </div>
     </section>
-
-    <!-- FORM -->
-    <section class="form-section">
+    <section class="form_section">
       <div class="container">
-        <form id="contractorForm" novalidate data-form="subcontractor-application">
-          
-          <!-- STEP 1 -->
-          <div class="form-step form-step--active" data-step="1">
-            <header class="section-header section-header--with-image">
-              <h2 class="section-header__title">Personal / Business Details</h2>
-            </header>
+        <form id="contractorForm">
+          <!-- STEP 1: Personal / Business Details -->
+          <!-- STEP 1: Personal / Business Details -->
+<div class="step_1" id="step-1">
 
-            <!-- CONTACT INFORMATION -->
-            <fieldset class="form-fieldset">
-              <legend class="form-fieldset__legend">Contact Information</legend>
+<div class="section_header">
+  <h2>Personal / Business Details</h2>
+</div>
 
-              <div class="form-group">
-                <label for="company_name">Company / Trade Name<span class="required">*</span></label>
-                <input type="text" id="company_name" name="company_name" data-field="companyName" required />
-                <small class="form-group__error"></small>
-              </div>
+  <!-- SUBSECTION 1: CONTACT INFORMATION -->
+  <h3>Contact Information</h3>
 
-              <div class="form-group">
-                <label for="contact_person">Contact Person<span class="required">*</span></label>
-                <input type="text" id="contact_person" name="contact_person" data-field="contactPerson" required />
-                <small class="form-group__error"></small>
-              </div>
+  <div class="form_group">
+    <label for="company_name">Company / Trade Name<span class="required">*</span></label>
+    <input type="text" id="company_name" name="company_name" required />
+    <small class="error_message"></small>
+  </div>
 
-              <div class="form-group">
-                <label for="address_line1">Address Line 1<span class="required">*</span></label>
-                <input type="text" id="address_line1" name="address_line1" data-field="addressLine1" required />
-                <small class="form-group__error"></small>
-              </div>
+  <div class="form_group">
+    <label for="contact_person">Contact Person<span class="required">*</span></label>
+    <input type="text" id="contact_person" name="contact_person" required />
+    <small class="error_message"></small>
+  </div>
 
-              <div class="form-group">
-                <label for="address_line2">Address Line 2</label>
-                <input type="text" id="address_line2" name="address_line2" data-field="addressLine2" />
-                <small class="form-group__error"></small>
-              </div>
+  <div class="form_group">
+    <label for="address_line1">Address Line 1<span class="required">*</span></label>
+    <input type="text" id="address_line1" name="address_line1" required />
+    <small class="error_message"></small>
+  </div>
 
-              <div class="form-group">
-                <label for="town_city">Town / City<span class="required">*</span></label>
-                <input type="text" id="town_city" name="town_city" data-field="townCity" required />
-                <small class="form-group__error"></small>
-              </div>
+  <div class="form_group">
+    <label for="address_line2">Address Line 2</label>
+    <input type="text" id="address_line2" name="address_line2" />
+    <small class="error_message"></small>
+  </div>
 
-              <div class="form-group">
-                <label for="postcode">Postcode<span class="required">*</span></label>
-                <input type="text" id="postcode" name="postcode" data-field="postcode" required />
-                <small class="form-group__error"></small>
-              </div>
+  <div class="form_group">
+    <label for="town_city">Town / City<span class="required">*</span></label>
+    <input type="text" id="town_city" name="town_city" required />
+    <small class="error_message"></small>
+  </div>
 
-              <div class="form-group">
-                <label for="phone_number">Phone Number<span class="required">*</span></label>
-                <input type="text" id="phone_number" name="phone_number" data-field="phoneNumber" required />
-                <small class="form-group__error"></small>
-              </div>
+  <div class="form_group">
+    <label for="postcode">Postcode<span class="required">*</span></label>
+    <input type="text" id="postcode" name="postcode" required />
+    <small class="error_message"></small>
+  </div>
 
-              <div class="form-group">
-                <label for="email_add">Email Address<span class="required">*</span></label>
-                <input type="email" id="email_add" name="email_add" data-field="emailAddress" required />
-                <small class="form-group__error"></small>
-              </div>
+  <div class="form_group">
+    <label for="phone_number">Phone Number<span class="required">*</span></label>
+    <input type="text" id="phone_number" name="phone_number" required />
+    <small class="error_message"></small>
+  </div>
 
-              <div class="form-group">
-                <label for="website">Website</label>
-                <input type="text" id="website" name="website" data-field="website" />
-                <small class="form-group__error"></small>
-              </div>
-            </fieldset>
+  <div class="form_group">
+    <label for="email_add">Email Address<span class="required">*</span></label>
+    <input type="email" id="email_add" name="email_add" required />
+    <small class="error_message"></small>
+  </div>
 
-            <!-- BUSINESS INFORMATION -->
-            <fieldset class="form-fieldset">
-              <legend class="form-fieldset__legend">Business Information</legend>
+  <div class="form_group">
+    <label for="website">Website</label>
+    <input type="text" id="website" name="website" />
+    <small class="error_message"></small>
+  </div>
 
-              <div class="form-group">
-                <label for="trade">Primary Trade / Service<span class="required">*</span></label>
-                <select id="trade" name="trade" data-field="primaryTrade" required>
-                  <option value="">Select trade</option>
-                  <option value="landscaper">Landscaper</option>
-                  <option value="bricklayer">Bricklayer</option>
-                  <option value="groundworker">Groundworker</option>
-                  <option value="joiner">Joiner</option>
-                  <option value="electrician">Electrician</option>
-                  <option value="plumber">Plumber</option>
-                </select>
-                <small class="form-group__error"></small>
-              </div>
 
-              <div class="form-group">
-                <label>Business Registered?<span class="required">*</span></label>
-                <div class="radio-group">
-                  <label><input type="radio" name="business_registered" value="yes" data-field="businessRegistered" required /> Yes</label>
-                  <label><input type="radio" name="business_registered" value="no" data-field="businessRegistered" required /> No</label>
-                </div>
-                <small class="form-group__error"></small>
-              </div>
+  <!-- SUBSECTION 2: BUSINESS INFORMATION -->
+  
 
-              <div class="form-group conditional" id="reg_number_group" hidden>
-                <label for="company_reg_number">Company Registration Number</label>
-                <input type="text" id="company_reg_number" name="company_reg_number" data-field="companyRegNumber" />
-                <small class="form-group__error"></small>
-              </div>
+  <div class="form_group">
+    <h3>Business Information</h3>
+    <label for="trade">Primary Trade / Service<span class="required">*</span></label>
+    <select id="trade" name="trade" required>
+      <option value="">Select trade</option>
+      <option value="landscaper">Landscaper</option>
+      <option value="bricklayer">Bricklayer</option>
+      <option value="groundworker">Groundworker</option>
+      <option value="joiner">Joiner</option>
+      <option value="electrician">Electrician</option>
+      <option value="plumber">Plumber</option>
+    </select>
+    <small class="error_message"></small>
+  </div>
 
-              <div class="form-group">
-                <label>Public Liability Insurance?<span class="required">*</span></label>
-                <div class="radio-group">
-                  <label><input type="radio" name="public_liability" value="yes" data-field="publicLiability" required /> Yes</label>
-                  <label><input type="radio" name="public_liability" value="no" data-field="publicLiability" required /> No</label>
-                </div>
-                <small class="form-group__error"></small>
-              </div>
+  <!-- Business Registered -->
+  <div class="form_group">
+    <label>Business Registered?<span class="required">*</span></label>
+    <div class="radio_group">
+      <label><input type="radio" name="business_registered" value="yes" required /> Yes</label>
+      <label><input type="radio" name="business_registered" value="no" required /> No</label>
+    </div>
+    <small class="error_message"></small>
+  </div>
 
-              <div class="form-group conditional" id="liability_expiry_group" hidden>
-                <label for="liability_expiry">Public Liability Expiry Date</label>
-                <input type="date" id="liability_expiry" name="liability_expiry" data-field="liabilityExpiry" />
-                <small class="form-group__error"></small>
-              </div>
+  <!-- Company Registration Number (conditional) -->
+  <div class="form_group conditional" id="reg_number_group" style="display:none;">
+    <label for="company_reg_number">Company Registration Number</label>
+    <input type="text" id="company_reg_number" name="company_reg_number" />
+    <small class="error_message"></small>
+  </div>
 
-              <div class="form-group">
-                <label for="coverage_radius">Area Coverage Radius (miles)<span class="required">*</span></label>
-                <input type="number" id="coverage_radius" name="coverage_radius" data-field="coverageRadius" min="0" required />
-                <small class="form-group__error"></small>
-              </div>
+  <!-- Public Liability -->
+  <div class="form_group">
+    <label>Public Liability Insurance?<span class="required">*</span></label>
+    <div class="radio_group">
+      <label><input type="radio" name="public_liability" value="yes" required /> Yes</label>
+      <label><input type="radio" name="public_liability" value="no" required /> No</label>
+    </div>
+    <small class="error_message"></small>
+  </div>
 
-              <div class="form-group">
-                <label for="day_rate">Average Day Rate (£)<span class="required">*</span></label>
-                <input type="number" id="day_rate" name="day_rate" data-field="dayRate" min="0" required />
-                <small class="form-group__error"></small>
-              </div>
+  <!-- Public Liability Expiry Date (conditional) -->
+  <div class="form_group conditional" id="liability_expiry_group" style="display:none;">
+    <label for="liability_expiry">Public Liability Expiry Date</label>
+    <input type="date" id="liability_expiry" name="liability_expiry" />
+    <small class="error_message"></small>
+  </div>
 
-              <div class="form-group">
-                <label for="team_size">Team Size<span class="required">*</span></label>
-                <input type="number" id="team_size" name="team_size" data-field="teamSize" min="1" required />
-                <small class="form-group__error"></small>
-              </div>
-            </fieldset>
+  <div class="form_group">
+    <label for="coverage_radius">Area Coverage Radius (miles)<span class="required">*</span></label>
+    <input type="number" id="coverage_radius" name="coverage_radius" min="0" required />
+    <small class="error_message"></small>
+  </div>
 
-            <button type="button" class="btn btn--primary form-step__next" data-next-step="2">
-              Next
-            </button>
-          </div>
+  <div class="form_group">
+    <label for="day_rate">Average Day Rate (£)<span class="required">*</span></label>
+    <input type="number" id="day_rate" name="day_rate" min="0" required />
+    <small class="error_message"></small>
+  </div>
 
-          <!-- STEP 2 -->
-          <div class="form-step" data-step="2">
-            <h2 class="form-step__title">Trade Specific</h2>
+  <div class="form_group">
+    <label for="team_size">Team Size<span class="required">*</span></label>
+    <input type="number" id="team_size" name="team_size" min="1" required />
+    <small class="error_message"></small>
+  </div>
+
+  <button type="button" id="next-1" class="next_button">Next</button>
+</div>
+
+          <!-- STEP 2: TRADE SPECIFIC -->
+          <div class="step_2" id="step-2" style="display: none">
+            <h2>Trade Specific</h2>
 
             <!-- Landscaper -->
-            <div class="trade-block" id="trade-landscaper" hidden>
+            <div class="trade-block" id="trade-landscaper" style="display: none">
               <h3>Landscaper Details</h3>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 1</label>
-                <input type="text" data-field="ls_question1" />
+                <input type="text" name="ls_question1" />
               </div>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 2</label>
-                <input type="text" data-field="ls_question2" />
+                <input type="text" name="ls_question2" />
               </div>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 3</label>
-                <input type="text" data-field="ls_question3" />
+                <input type="text" name="ls_question3" />
               </div>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 4</label>
-                <input type="text" data-field="ls_question4" />
+                <input type="text" name="ls_question4" />
               </div>
             </div>
 
             <!-- Bricklayer -->
-            <div class="trade-block" id="trade-bricklayer" hidden>
+            <div class="trade-block" id="trade-bricklayer" style="display: none">
               <h3>Bricklayer Details</h3>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 1</label>
-                <input type="text" data-field="bl_question1" />
+                <input type="text" name="bl_question1" />
               </div>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 2</label>
-                <input type="text" data-field="bl_question2" />
+                <input type="text" name="bl_question2" />
               </div>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 3</label>
-                <input type="text" data-field="bl_question3" />
+                <input type="text" name="bl_question3" />
               </div>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 4</label>
-                <input type="text" data-field="bl_question4" />
+                <input type="text" name="bl_question4" />
               </div>
             </div>
 
             <!-- Groundworker -->
-            <div class="trade-block" id="trade-groundworker" hidden>
+            <div class="trade-block" id="trade-groundworker" style="display: none">
               <h3>Groundworker Details</h3>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 1</label>
-                <input type="text" data-field="gw_question1" />
+                <input type="text" name="gw_question1" />
               </div>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 2</label>
-                <input type="text" data-field="gw_question2" />
+                <input type="text" name="gw_question2" />
               </div>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 3</label>
-                <input type="text" data-field="gw_question3" />
+                <input type="text" name="gw_question3" />
               </div>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 4</label>
-                <input type="text" data-field="gw_question4" />
+                <input type="text" name="gw_question4" />
               </div>
             </div>
 
             <!-- Joiner -->
-            <div class="trade-block" id="trade-joiner" hidden>
+            <div class="trade-block" id="trade-joiner" style="display: none">
               <h3>Joiner Details</h3>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 1</label>
-                <input type="text" data-field="j_question1" />
+                <input type="text" name="j_question1" />
               </div>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 2</label>
-                <input type="text" data-field="j_question2" />
+                <input type="text" name="j_question2" />
               </div>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 3</label>
-                <input type="text" data-field="j_question3" />
+                <input type="text" name="j_question3" />
               </div>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 4</label>
-                <input type="text" data-field="j_question4" />
+                <input type="text" name="j_question4" />
               </div>
             </div>
 
             <!-- Electrician -->
-            <div class="trade-block" id="trade-electrician" hidden>
+            <div class="trade-block" id="trade-electrician" style="display: none">
               <h3>Electrician Details</h3>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 1</label>
-                <input type="text" data-field="el_question1" />
+                <input type="text" name="el_question1" />
               </div>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 2</label>
-                <input type="text" data-field="el_question2" />
+                <input type="text" name="el_question2" />
               </div>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 3</label>
-                <input type="text" data-field="el_question3" />
+                <input type="text" name="el_question3" />
               </div>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 4</label>
-                <input type="text" data-field="el_question4" />
+                <input type="text" name="el_question4" />
               </div>
             </div>
 
             <!-- Plumber -->
-            <div class="trade-block" id="trade-plumber" hidden>
+            <div class="trade-block" id="trade-plumber" style="display: none">
               <h3>Plumber Details</h3>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 1</label>
-                <input type="text" data-field="pl_question1" />
+                <input type="text" name="pl_question1" />
               </div>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 2</label>
-                <input type="text" data-field="pl_question2" />
+                <input type="text" name="pl_question2" />
               </div>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 3</label>
-                <input type="text" data-field="pl_question3" />
+                <input type="text" name="pl_question3" />
               </div>
 
-              <div class="form-group">
+              <div class="form_group">
                 <label>Question 4</label>
-                <input type="text" data-field="pl_question4" />
+                <input type="text" name="pl_question4" />
               </div>
             </div>
 
-            <div class="form-step__buttons">
-              <button type="button" class="btn btn--secondary form-step__back" data-prev-step="1">
-                Back
-              </button>
-
-              <button type="submit" class="btn btn--primary">
-                Submit Application
-              </button>
+            <div class="step_2_buttons">
+              <button type="button" id="back-2">Back</button>
+              <button type="submit">Submit</button>
             </div>
           </div>
         </form>
         <!-- STEP 3: CONFIRMATION -->
-        <div class="form-step form-step--confirmation" data-step="3" hidden>
-          <h2 class="form-step__title">Application Submitted</h2>
+        <div class="step_3" id="step-3" style="display: none">
+          <h2>Application Submitted</h2>
 
-          <div class="confirmation-box">
+          <div class="confirmation_box">
             <p>Thank you for submitting your application.</p>
             <p>Our team will review your details and contact you if we require any further information.</p>
           </div>
 
-          <a href="../index.html" class="btn btn--primary home-button">
-            Return to Home
-          </a>
+          <button type="button" id="back-home" class="home_button">Return to Home</button>
         </div>
       </div>
     </section>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="container site-footer__inner">
-        <div class="footer-block">
-          <h3 class="footer-block__title">Landscapia</h3>
-          <p>
-            Unit 12 Forge Trading Estate<br />
-            Mucklow Hill<br />
-            Halesowen<br />
-            West Midlands<br />
-            B63 8TP
-          </p>
-        </div>
-
-        <div class="footer-block">
-          <h3 class="footer-block__title">Walker Landscape & Design</h3>
-          <p>
-            Unit 2 Deva Forge<br />
-            Hoolebank<br />
-            Chester<br />
-            CH2 4ES
-          </p>
-        </div>
-      </div>
-
-      <p class="site-footer__copy">© 2026 Landscapia & Walker Landscape & Design</p>
-    </footer>
-
-    <!-- JS -->
-    <script src="../js/application.js"></script>
   </body>
+  <script src="../js/application.js"></script>
 </html>
