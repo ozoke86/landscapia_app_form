@@ -795,6 +795,125 @@ a {
   flex: 1 1 220px; /* grow, shrink, min width */
 }
 
+.card--value {
+  position: relative;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.card--value h3,
+.card--value p {
+  position: relative;
+  z-index: 2;
+}
+
+.card--value .card__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.card--feature {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: var(--space-xxl);
+  border-radius: var(--radius-lg);
+  color: #fff;
+  overflow: hidden;
+}
+
+.card--feature .card__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.card--feature .card__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+
+/* Shared split layout */
+.feature-split {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+}
+
+/* LEFT-anchored layout */
+.feature-split--left {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.feature-split--left img {
+  margin-right: auto;
+}
+
+.feature-split--left .feature-text {
+  margin-left: auto;
+}
+
+/* RIGHT-anchored layout */
+.feature-split--right {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.feature-split--right img {
+  margin-left: auto;
+}
+
+.feature-split--right .feature-text {
+  margin-right: auto;
+}
+
+/* Responsive stacking */
+@media (max-width: 768px) {
+  .feature-split,
+  .feature-split--left,
+  .feature-split--right {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .feature-split--right .feature-text {
+    margin-right: 0;
+  }
+
+  .feature-split--left .feature-text {
+    margin-left: 0;
+  }
+
+  .feature-split img {
+    margin: 0 auto;
+  }
+}
+
+.feature-text p {
+  line-height: 1.6;
+}
+
+.feature-img {
+  background: var(--color-smoke);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+
+}
 /* =========================
    BUTTONS
    ========================= */
@@ -1159,3 +1278,4 @@ a {
     padding: 32px 16px;
   }
 }
+
